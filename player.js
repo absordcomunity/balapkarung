@@ -1,24 +1,23 @@
 class  Player{
-  constructor(warna, y) {
-    this.warna = color(warna)
-    this.d = 40
-    this.pos = createVector(50, y)
+  constructor(x, y, player) {
+    this.player = player
+    this.x = x
+    this.y = y
     this.speed = 5
    
   }
   
   tampilkan() {
-    fill(this.warna)
-    circle(this.pos.x, this.pos.y, this.d)
+   image(this.player, this.x, this.y, 50, 100)
   }
   
   maju() {
-    this.pos.x +=this.speed
+    this.x += this.speed
      
   }
   finish(){
-    if(this.pos.x > width) {
-      fill(this.warna)
+    if(this.x > 520) {
+      sfxTepukTangan.play()
       textSize(30)
       textAlign(CENTER)
       text('FINISH',width/2,height/2)
